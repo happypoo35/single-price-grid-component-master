@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+$Cyan: hsl(179, 62%, 43%);
+$Bright-Yellow: hsl(71, 73%, 54%);
+$Light-Gray: hsl(204, 43%, 93%);
+$Grayish-Blue: hsl(218, 22%, 67%);
+
+$mobile: 640px;
+
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  background: $Light-Gray;
+  overflow: hidden;
+}
+
+h3 {
+  font-size: 1.1rem;
+  transition: 0.3s ease-in-out;
+
+  @include mobile {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+p {
+  letter-spacing: -0.01rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 216px 260px;
+  width: 100%;
+  max-width: 40rem;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 2rem rgba($Grayish-Blue, 0.5);
+  margin: 2rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  section {
+    padding: 2.5rem;
+    transition: 0.3s ease-in-out;
+
+    @include mobile {
+      padding: 1.5rem;
+    }
+  }
+}
+
+.title {
+  grid-column: span 2;
+
+  @include mobile {
+    grid-column: unset;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02rem;
+    color: $Cyan;
+
+    @include mobile {
+      font-size: 1.2rem;
+    }
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    color: $Bright-Yellow;
+  }
+
+  p {
+    color: $Grayish-Blue;
+
+    @include mobile {
+      line-height: 2;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  background: $Cyan;
+
+  .price-container {
+    p {
+      opacity: 0.8;
+    }
+
+    @include mobile {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .price {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.4rem;
+
+    p {
+      opacity: 0.5;
+    }
+  }
+
+  span {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-right: 0.7rem;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
+    background: $Bright-Yellow;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.5rem 1rem darken($Cyan, 5%);
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background: darken($Bright-Yellow, 5%);
+      box-shadow: 0 0.5rem 1rem darken($Cyan, 10%);
+    }
+  }
+}
+
+.why-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  background: rgba($Cyan, 0.8);
+
+  li {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    opacity: 0.7;
+  }
+}
